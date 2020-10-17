@@ -1,3 +1,17 @@
 .messages {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .message, .message__content{
+        width: 350px;
+        background-color: lightgray;
+    }
+
+    .message {
+        font-weight: 600;
+    }
+
 }
