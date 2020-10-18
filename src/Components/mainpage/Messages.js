@@ -1,19 +1,22 @@
 import React from 'react'
+import MessageInput from "../messageInput/MessageInput";
 
 
 function mainPage() {
 
-    const messages  = [
-        {user: "John", content: "Papież", time:""},
-        {user: "Doe", content: "Polak", time:""}
-    ];
+    const today = new Date();
+    const time = `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`
 
+    const messages  = [
+        {id: "1", user: "John", content: "jestem John", time: time},
+        {id: "2", user: "Doe", content: "a ja Doe", time: time}
+    ];
 
     return (
         <div className="messages">
-            {messages.map(message => 
-                (<div>{message.user}: {message.content} - Time: </div>)
-                )}
+            {messages.map((message) => ( 
+                <MessageInput key={message.id} message={message} />
+             ))}
         </div>
     )
 }
