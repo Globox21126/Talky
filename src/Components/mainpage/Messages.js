@@ -9,6 +9,8 @@ function MainPage() {
 
     const [dbMessage, setDbMessage] = useState([]);
 
+    
+
     useEffect(() => {
         database.ref("/messages").on("value", (snapshot) => {
             const firebaseMessages = snapshot.val();
@@ -19,6 +21,7 @@ function MainPage() {
             setDbMessage(convertedMessages);
         });
     }, []);
+
 
     const [text, setText] = useState("");
     const changeMessage = (e) => {
@@ -41,6 +44,7 @@ function MainPage() {
         database.ref("/messages").push(newMessage);
         setText(prev => "");
     }
+
 
     return (
         <>
